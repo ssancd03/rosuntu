@@ -45,12 +45,12 @@ Take a look to the custom slideshow of ROSuntu that you will see during installa
 <div align="center">
   <img src="./images/install.png" style="width: 100%;">
 
-  <img src="./images/slideshow_1.PNG" style="width: 49%;">
-  <img src="./images/slideshow_2.PNG" style="width: 49%;">
-  <img src="./images/slideshow_3.PNG" style="width: 49%;">
-  <img src="./images/slideshow_4.PNG" style="width: 49%;">
-  <img src="./images/slideshow_5.PNG" style="width: 49%;">
-  <img src="./images/slideshow_6.PNG" style="width: 49%;">
+  <img src="./images/slideshow_1.png" style="width: 49%;">
+  <img src="./images/slideshow_2.png" style="width: 49%;">
+  <img src="./images/slideshow_3.png" style="width: 49%;">
+  <img src="./images/slideshow_4.png" style="width: 49%;">
+  <img src="./images/slideshow_5.png" style="width: 49%;">
+  <img src="./images/slideshow_6.png" style="width: 49%;">
 </div>
 
 </details>
@@ -87,14 +87,16 @@ $ cubic .
 
 Download the [Ubuntu 22.04.4 LTS (Jammy Jellyfish)](https://releases.ubuntu.com/jammy/) ISO and load it in the Project Page of Cubic. Modify the custom data by replacing Ubuntu with ROSuntun and setting the release to Humble Hawksbill.
 
+<img src="./images/cubic-1.png">
+
 ### Terminal Page
 
 Clone this repository in the chroot terminal and run the install script to install all packages. Use all of the materials in this repository. Note the kernel shown at the end.
 
 ```shell
+$ apt update && apt install git -y
 $ git clone https://github.com/mgonzs13/rosuntu
 $ cd rosuntu
-$ git checkout 22-humble-desktop
 $ ./install.sh
 ```
 
