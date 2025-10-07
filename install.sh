@@ -41,8 +41,8 @@ curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $VERSION_CODENAME) main" | tee /etc/apt/sources.list.d/ros2.list > /dev/null
 apt update
 
-# Install ROS 2 packages
-apt install -y ros-jazzy-desktop ros-dev-tools ros-jazzy-ros-gz gazebo
+# Install ROS 2 packages + Gazebo
+apt install -y ros-jazzy-desktop ros-dev-tools ros-jazzy-ros-gz
 
 # Install GNOME tools and Git
 echo -e "${YELLOW}================================${RESET}"
@@ -109,9 +109,10 @@ cp wallpaper/rosuntu-wallpapers.xml /usr/share/gnome-background-properties/
 echo -e "${BLUE}========================${RESET}"
 echo -e "${BLUE}  Preparing Ubiquity    ${RESET}"
 echo -e "${BLUE}========================${RESET}"
-rm -rf /usr/share/ubiquity-slideshow/slides/*
+mkdir -p /usr/share/ubiquity-slideshow/slides
+mkdir -p /usr/share/ubiquity-slideshow/pixmaps
 cp -r ubiquity/slides/* /usr/share/ubiquity-slideshow/slides/
-cp -r ubiquity/pixmaps/* /usr/share/ubiquity-slideshow/pixmaps
+cp -r ubiquity/pixmaps/* /usr/share/ubiquity-slideshow/pixmaps/
 
 # Configure defaults
 echo -e "${YELLOW}========================${RESET}"
