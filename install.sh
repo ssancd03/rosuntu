@@ -28,15 +28,13 @@ apt install -y ros-jazzy-desktop ros-dev-tools ros-jazzy-ros-gz
 read -p "Press Enter to continue..."
 clear
 
-echo -e "${YELLOW}========================${RESET}"
-echo -e "${YELLOW}   Installing VS Code   ${RESET}"
-echo -e "${YELLOW}========================${RESET}"
-wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > /usr/share/keyrings/packages.microsoft.gpg
-echo "deb [arch=amd64,arm64,armhf signed-by=/usr/share/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" | tee /etc/apt/sources.list.d/vscode.list
-apt update
-apt install -y code
-
-sed -i 's/Exec=\/usr\/share\/code\/code/Exec=\/usr\/share\/code\/code --no-sandbox --user-data-dir/' /usr/share/applications/code.desktop
+echo -e "${CYAN}========================${RESET}"
+echo -e "${CYAN}  Installing VSCode     ${RESET}"
+echo -e "${CYAN}========================${RESET}"
+apt install apt-transport-https wget -y
+wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | apt-key add -
+add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" -y
+apt install code -y
 
 echo -e "${GREEN}========================${RESET}"
 echo -e "${GREEN} Install complete! ${RESET}"
