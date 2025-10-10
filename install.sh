@@ -37,15 +37,6 @@ wget -O vscode.deb 'https://code.visualstudio.com/sha/download?build=stable&os=l
 apt install -y ./vscode.deb
 rm -f vscode.deb
 
-sed -i 's|Exec=/usr/share/code/code|Exec=/usr/share/code/code --no-sandbox --user-data-dir|g' /usr/share/applications/code.desktop
-
-mv /usr/bin/code /usr/bin/code-original
-cat > /usr/bin/code << 'EOF'
-#!/bin/bash
-/usr/bin/code-original --no-sandbox --user-data-dir="$HOME/.vscode-data" "$@"
-EOF
-chmod +x /usr/bin/code
-
 read -p "Press Enter to continue..."
 clear
 
