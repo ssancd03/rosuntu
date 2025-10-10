@@ -99,7 +99,7 @@ echo -e "${GREEN}  Preparing Wallpapers  ${RESET}"
 echo -e "${GREEN}========================${RESET}"
 mkdir -p /usr/share/backgrounds/rosuntu
 cp wallpaper/*.png /usr/share/backgrounds/rosuntu/
-cp wallpaper/rosuntu-wallpapers.xml /usr/share/gnome-background-properties/
+cp wallpaper/rosuntu-wallpapers.xml /usr/share/gnome-background-properties/ubuntu-wallpapers.xml
 
 read -p "Press Enter to continue..."
 clear
@@ -109,6 +109,20 @@ echo -e "${YELLOW} Configuring Defaults   ${RESET}"
 echo -e "${YELLOW}========================${RESET}"
 cp conf/90_ubuntu-settings.gschema.override /usr/share/glib-2.0/schemas/
 glib-compile-schemas /usr/share/glib-2.0/schemas
+
+mkdir -p /etc/dconf/profile
+cat > /etc/dconf/profile/user << 'EOF'
+user-db:user
+system-db:local
+EOF
+
+mkdir -p /etc/dconf/db/local.d
+cat > /etc/dconf/db/local.d/00-favorite-apps << 'EOF'
+[org/gnome/shell]
+favorite-apps = ['google-chrome.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop', 'code.desktop']
+EOF
+
+dconf update
 
 read -p "Press Enter to continue..."
 clear
