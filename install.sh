@@ -53,3 +53,13 @@ echo -e "${YELLOW}================================${RESET}"
 echo -e "${YELLOW} Installing GNOME Tools and Git ${RESET}"
 echo -e "${YELLOW}================================${RESET}"
 apt install -y gnome-control-center git
+
+read -p "Press Enter to continue..."
+clear
+
+echo -e "${GREEN}========================${RESET}"
+echo -e "${GREEN}  Installing Chrome     ${RESET}"
+echo -e "${GREEN}========================${RESET}"
+wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+apt install -y ./google-chrome-stable_current_amd64.deb
+rm -f google-chrome-stable_current_amd64.deb
