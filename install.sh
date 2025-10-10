@@ -3,6 +3,7 @@ set -e
 
 GREEN='\033[1;32m'
 BLUE='\033[1;34m'
+YELLOW='\033[1;33m'
 RESET='\033[0m'
 
 echo -e "${GREEN}========================${RESET}"
@@ -23,6 +24,17 @@ curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $VERSION_CODENAME) main" | tee /etc/apt/sources.list.d/ros2.list
 apt update
 apt install -y ros-jazzy-desktop ros-dev-tools ros-jazzy-ros-gz
+
+read -p "Press Enter to continue..."
+clear
+
+echo -e "${YELLOW}========================${RESET}"
+echo -e "${YELLOW}   Installing VS Code   ${RESET}"
+echo -e "${YELLOW}========================${RESET}"
+wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > /usr/share/keyrings/packages.microsoft.gpg
+echo "deb [arch=amd64,arm64,armhf signed-by=/usr/share/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" | tee /etc/apt/sources.list.d/vscode.list
+apt update
+apt install -y code
 
 echo -e "${GREEN}========================${RESET}"
 echo -e "${GREEN} Install complete! ${RESET}"
