@@ -10,7 +10,8 @@ echo -e "${GREEN}   Update and Upgrade   ${RESET}"
 echo -e "${GREEN}========================${RESET}"
 apt update && apt upgrade -y
 
-read -p "Presiona Enter para continuar..."
+read -p "Press Enter to continue..."
+clear
 
 echo -e "${BLUE}========================${RESET}"
 echo -e "${BLUE}   Installing ROS 2 Jazzy     ${RESET}"
