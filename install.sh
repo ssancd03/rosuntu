@@ -32,7 +32,13 @@ clear
 echo -e "${CYAN}========================${RESET}"
 echo -e "${CYAN}  Installing VSCode     ${RESET}"
 echo -e "${CYAN}========================${RESET}"
-apt install -y wget
-wget -q "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64" -O vscode.deb
-apt install -y ./vscode.deb
-rm -f vscode.deb
+snap install code --classic
+
+cat > /usr/local/bin/code-wrapper << 'EOF'
+#!/bin/bash
+/snap/bin/code --no-sandbox --user-data-dir="$HOME/.vscode-data" "$@"
+EOF
+chmod +x /usr/local/bin/code-wrapper
+
+sed -i 's|Exec=/snap/bin/code|Exec=/usr/local/bin/code-wrapper|g' /var/lib/snapd/desktop/applications/code_code.desktop
+cp /var/lib/snapd/desktop/applications/code_code.desktop /usr/share/applications/
