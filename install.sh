@@ -99,7 +99,7 @@ echo -e "${GREEN}  Preparing Wallpapers  ${RESET}"
 echo -e "${GREEN}========================${RESET}"
 mkdir -p /usr/share/backgrounds/rosuntu
 cp wallpaper/*.png /usr/share/backgrounds/rosuntu/
-cp wallpaper/rosuntu-wallpapers.xml /usr/share/gnome-background-properties/ubuntu-wallpapers.xml
+cp wallpaper/rosuntu-wallpapers.xml /usr/share/gnome-background-properties/rosuntu-wallpapers.xml
 
 read -p "Press Enter to continue..."
 clear
