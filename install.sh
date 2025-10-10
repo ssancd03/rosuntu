@@ -4,6 +4,7 @@ set -e
 GREEN='\033[1;32m'
 BLUE='\033[1;34m'
 YELLOW='\033[1;33m'
+CYAN='\033[1;36m'
 RESET='\033[0m'
 
 echo -e "${GREEN}========================${RESET}"
@@ -31,6 +32,7 @@ clear
 echo -e "${CYAN}========================${RESET}"
 echo -e "${CYAN}  Installing VSCode     ${RESET}"
 echo -e "${CYAN}========================${RESET}"
-wget -q https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64 -O vscode.deb
+apt install -y wget
+wget -q "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64" -O vscode.deb
 apt install -y ./vscode.deb
 rm -f vscode.deb
