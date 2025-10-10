@@ -36,6 +36,8 @@ echo "deb [arch=amd64,arm64,armhf signed-by=/usr/share/keyrings/packages.microso
 apt update
 apt install -y code
 
+sed -i 's/Exec=\/usr\/share\/code\/code/Exec=\/usr\/share\/code\/code --no-sandbox --user-data-dir/' /usr/share/applications/code.desktop
+
 echo -e "${GREEN}========================${RESET}"
 echo -e "${GREEN} Install complete! ${RESET}"
 echo -e "${GREEN}========================${RESET}"
