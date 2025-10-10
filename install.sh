@@ -45,3 +45,11 @@ cat > /usr/bin/code << 'EOF'
 /usr/bin/code-original --no-sandbox --user-data-dir="$HOME/.vscode-data" "$@"
 EOF
 chmod +x /usr/bin/code
+
+read -p "Press Enter to continue..."
+clear
+
+echo -e "${YELLOW}================================${RESET}"
+echo -e "${YELLOW} Installing GNOME Tools and Git ${RESET}"
+echo -e "${YELLOW}================================${RESET}"
+apt install -y gnome-control-center git
