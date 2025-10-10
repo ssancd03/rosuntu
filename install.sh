@@ -105,11 +105,23 @@ read -p "Press Enter to continue..."
 clear
 
 echo -e "${BLUE}========================${RESET}"
-echo -e "${BLUE}  Preparing Ubiquity    ${RESET}"
+echo -e "${BLUE}  Preparing Installer   ${RESET}"
 echo -e "${BLUE}========================${RESET}"
-rm -rf /usr/share/ubiquity-slideshow/slides/*
-cp -r ubiquity/slides/* /usr/share/ubiquity-slideshow/slides/
-cp -r ubiquity/pixmaps/* /usr/share/ubiquity/pixmaps
+if [ -d /usr/share/ubiquity-slideshow/slides ]; then
+  echo "Configuring Ubiquity..."
+  rm -rf /usr/share/ubiquity-slideshow/slides/*
+  cp -r ubiquity/slides/* /usr/share/ubiquity-slideshow/slides/
+  cp -r ubiquity/pixmaps/* /usr/share/ubiquity/pixmaps
+  echo "Ubiquity configured successfully"
+elif [ -d /usr/share/ubuntu-desktop-installer ]; then
+  echo "Configuring Ubuntu Desktop Installer..."
+  mkdir -p /usr/share/ubuntu-desktop-installer/slides
+  cp -r ubiquity/slides/* /usr/share/ubuntu-desktop-installer/slides/ 2>/dev/null || echo "Slides not copied"
+  cp -r ubiquity/pixmaps/* /usr/share/ubuntu-desktop-installer/ 2>/dev/null || echo "Pixmaps not copied"
+  echo "Ubuntu Desktop Installer configured"
+else
+  echo "No installer found, skipping..."
+fi
 
 read -p "Press Enter to continue..."
 clear
