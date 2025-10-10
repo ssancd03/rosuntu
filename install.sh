@@ -74,6 +74,47 @@ read -p "Press Enter to continue..."
 clear
 
 echo -e "${YELLOW}========================${RESET}"
+echo -e "${YELLOW}  Preparing Plymouth    ${RESET}"
+echo -e "${YELLOW}========================${RESET}"
+mkdir -p /usr/share/plymouth/themes/rosuntu
+cp plymouth/*.png /usr/share/plymouth/themes/rosuntu/
+cp plymouth/rosuntu.script /usr/share/plymouth/themes/rosuntu/
+cp plymouth/rosuntu.plymouth /usr/share/plymouth/themes/rosuntu/
+update-alternatives --install "/usr/share/plymouth/themes/default.plymouth" "default.plymouth" "/usr/share/plymouth/themes/rosuntu/rosuntu.plymouth" 160
+update-initramfs -uk all
+
+read -p "Press Enter to continue..."
+clear
+
+echo -e "${CYAN}========================${RESET}"
+echo -e "${CYAN}   Setting Login Screen ${RESET}"
+echo -e "${CYAN}========================${RESET}"
+cp logo/*.png /usr/share/plymouth/
+
+read -p "Press Enter to continue..."
+clear
+
+echo -e "${GREEN}========================${RESET}"
+echo -e "${GREEN}  Preparing Wallpapers  ${RESET}"
+echo -e "${GREEN}========================${RESET}"
+mkdir -p /usr/share/backgrounds/rosuntu
+cp wallpaper/*.png /usr/share/backgrounds/rosuntu/
+cp wallpaper/rosuntu-wallpapers.xml /usr/share/gnome-background-properties/
+
+read -p "Press Enter to continue..."
+clear
+
+echo -e "${BLUE}========================${RESET}"
+echo -e "${BLUE}  Preparing Ubiquity    ${RESET}"
+echo -e "${BLUE}========================${RESET}"
+rm -rf /usr/share/ubiquity-slideshow/slides/*
+cp -r ubiquity/slides/* /usr/share/ubiquity-slideshow/slides/
+cp -r ubiquity/pixmaps/* /usr/share/ubiquity/pixmaps
+
+read -p "Press Enter to continue..."
+clear
+
+echo -e "${YELLOW}========================${RESET}"
 echo -e "${YELLOW} Configuring Defaults   ${RESET}"
 echo -e "${YELLOW}========================${RESET}"
 cp conf/90_ubuntu-settings.gschema.override /usr/share/glib-2.0/schemas/
@@ -85,7 +126,13 @@ clear
 echo -e "${CYAN}========================${RESET}"
 echo -e "${CYAN} Configuring .bashrc    ${RESET}"
 echo -e "${CYAN}========================${RESET}"
-echo "source /opt/ros/jazzy/setup.bash" >> /etc/skel/.bashrc
+cat >> /etc/skel/.bashrc << 'EOF'
+
+# ROS 2 Jazzy setup
+if [ -f /opt/ros/jazzy/setup.bash ] && [ -z "$ROS_DISTRO" ]; then
+  source /opt/ros/jazzy/setup.bash
+fi
+EOF
 
 echo -e "${GREEN}========================${RESET}"
 echo -e "${GREEN} Install complete!      ${RESET}"
