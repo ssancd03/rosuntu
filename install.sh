@@ -34,8 +34,9 @@ echo -e "${CYAN}========================${RESET}"
 apt install apt-transport-https wget -y
 wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | apt-key add -
 add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" -y
+apt update
 apt install code -y
 
-echo -e "${GREEN}========================${RESET}"
-echo -e "${GREEN} Install complete! ${RESET}"
-echo -e "${GREEN}========================${RESET}"
+echo -e "${CYAN}========================${RESET}"
+echo -e "${CYAN}  VSCode Installation Complete! ${RESET}"
+echo -e "${CYAN}========================${RESET}"
