@@ -29,6 +29,14 @@ apt install -y ros-jazzy-desktop ros-dev-tools ros-jazzy-ros-gz
 read -p "Press Enter to continue..."
 clear
 
+echo -e "${YELLOW}================================${RESET}"
+echo -e "${YELLOW} Installing GNOME Tools and Git ${RESET}"
+echo -e "${YELLOW}================================${RESET}"
+apt install -y gnome-control-center git
+
+read -p "Press Enter to continue..."
+clear
+
 echo -e "${CYAN}========================${RESET}"
 echo -e "${CYAN}  Installing VSCode     ${RESET}"
 echo -e "${CYAN}========================${RESET}"
@@ -36,14 +44,6 @@ apt install -y wget
 wget -O vscode.deb 'https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64'
 apt install -y ./vscode.deb
 rm -f vscode.deb
-
-read -p "Press Enter to continue..."
-clear
-
-echo -e "${YELLOW}================================${RESET}"
-echo -e "${YELLOW} Installing GNOME Tools and Git ${RESET}"
-echo -e "${YELLOW}================================${RESET}"
-apt install -y gnome-control-center git
 
 read -p "Press Enter to continue..."
 clear
