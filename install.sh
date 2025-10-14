@@ -95,6 +95,19 @@ read -p "Press Enter to continue..."
 clear
 
 echo -e "${GREEN}========================${RESET}"
+echo -e "${GREEN} Configuring Ubiquity   ${RESET}"
+echo -e "${GREEN}========================${RESET}"
+mkdir -p /usr/share/ubiquity-slideshow/slides/rosuntu
+cp -r ubiquity/slides/* /usr/share/ubiquity-slideshow/slides/rosuntu/
+mkdir -p /usr/share/pixmaps/ubiquity
+cp ubiquity/pixmaps/ubuntu_installed.png /usr/share/pixmaps/ubiquity/
+cp -r ubiquity/pixmaps/ubuntu /usr/share/pixmaps/ubiquity/
+cp conf/ubiquity-slideshow.conf /etc/ubiquity/slideshow.conf
+
+read -p "Press Enter to continue..."
+clear
+
+echo -e "${GREEN}========================${RESET}"
 echo -e "${GREEN}  Preparing Wallpapers  ${RESET}"
 echo -e "${GREEN}========================${RESET}"
 mkdir -p /usr/share/backgrounds/rosuntu
