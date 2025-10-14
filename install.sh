@@ -76,7 +76,7 @@ echo -e "${GREEN}================================${RESET}"
 # Remove default Ubuntu slides first
 rm -rf /usr/share/desktop-provision/slides
 mkdir -p /usr/share/desktop-provision/slides
-cp -r ubiquity/slides/* /usr/share/desktop-provision/slides/
+cp -r ubiquity/slides-new/* /usr/share/desktop-provision/slides/
 # Remove and replace default Ubuntu pixmaps
 rm -rf /usr/share/pixmaps/ubuntu
 mkdir -p /usr/share/pixmaps/ubuntu
