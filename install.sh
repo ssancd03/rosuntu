@@ -12,9 +12,6 @@ echo -e "${GREEN}   Update and Upgrade   ${RESET}"
 echo -e "${GREEN}========================${RESET}"
 apt update && apt upgrade -y
 
-read -p "Press Enter to continue..."
-clear
-
 echo -e "${BLUE}========================${RESET}"
 echo -e "${BLUE}   Installing ROS 2 Jazzy     ${RESET}"
 echo -e "${BLUE}========================${RESET}"
@@ -26,16 +23,10 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-a
 apt update
 apt install -y ros-jazzy-desktop ros-dev-tools ros-jazzy-ros-gz
 
-read -p "Press Enter to continue..."
-clear
-
 echo -e "${YELLOW}================================${RESET}"
 echo -e "${YELLOW} Installing GNOME Tools and Git ${RESET}"
 echo -e "${YELLOW}================================${RESET}"
 apt install -y gnome-control-center git
-
-read -p "Press Enter to continue..."
-clear
 
 echo -e "${CYAN}========================${RESET}"
 echo -e "${CYAN}  Installing VSCode     ${RESET}"
@@ -45,18 +36,12 @@ wget -O vscode.deb 'https://code.visualstudio.com/sha/download?build=stable&os=l
 apt install -y ./vscode.deb
 rm -f vscode.deb
 
-read -p "Press Enter to continue..."
-clear
-
 echo -e "${GREEN}========================${RESET}"
 echo -e "${GREEN}  Installing Chrome     ${RESET}"
 echo -e "${GREEN}========================${RESET}"
 wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 apt install -y ./google-chrome-stable_current_amd64.deb
 rm -f google-chrome-stable_current_amd64.deb
-
-read -p "Press Enter to continue..."
-clear
 
 echo -e "${BLUE}========================${RESET}"
 echo -e "${BLUE}  Installing Docker     ${RESET}"
@@ -70,9 +55,6 @@ apt update
 apt install -y docker-ce
 groupmod -g 1000 docker
 
-read -p "Press Enter to continue..."
-clear
-
 echo -e "${YELLOW}========================${RESET}"
 echo -e "${YELLOW}  Preparing Plymouth    ${RESET}"
 echo -e "${YELLOW}========================${RESET}"
@@ -83,29 +65,19 @@ cp plymouth/rosuntu.plymouth /usr/share/plymouth/themes/rosuntu/
 update-alternatives --install "/usr/share/plymouth/themes/default.plymouth" "default.plymouth" "/usr/share/plymouth/themes/rosuntu/rosuntu.plymouth" 160
 update-initramfs -uk all
 
-read -p "Press Enter to continue..."
-clear
-
 echo -e "${CYAN}========================${RESET}"
 echo -e "${CYAN}   Setting Login Screen ${RESET}"
 echo -e "${CYAN}========================${RESET}"
 cp logo/*.png /usr/share/plymouth/
 
-read -p "Press Enter to continue..."
-clear
-
-echo -e "${GREEN}========================${RESET}"
-echo -e "${GREEN} Configuring Ubiquity   ${RESET}"
-echo -e "${GREEN}========================${RESET}"
-mkdir -p /usr/share/ubiquity-slideshow/slides/rosuntu
-cp -r ubiquity/slides/* /usr/share/ubiquity-slideshow/slides/rosuntu/
-mkdir -p /usr/share/pixmaps/ubiquity
-cp ubiquity/pixmaps/ubuntu_installed.png /usr/share/pixmaps/ubiquity/
-cp -r ubiquity/pixmaps/ubuntu /usr/share/pixmaps/ubiquity/
-cp conf/ubiquity-slideshow.conf /etc/ubiquity/slideshow.conf
-
-read -p "Press Enter to continue..."
-clear
+echo -e "${GREEN}================================${RESET}"
+echo -e "${GREEN} Configuring Installer Slideshow ${RESET}"
+echo -e "${GREEN}================================${RESET}"
+mkdir -p /usr/share/desktop-provision/slides
+cp -r ubiquity/slides/* /usr/share/desktop-provision/slides/
+cp ubiquity/pixmaps/ubuntu_installed.png /usr/share/pixmaps/
+mkdir -p /usr/share/pixmaps/ubuntu
+cp -r ubiquity/pixmaps/ubuntu/* /usr/share/pixmaps/ubuntu/
 
 echo -e "${GREEN}========================${RESET}"
 echo -e "${GREEN}  Preparing Wallpapers  ${RESET}"
@@ -113,9 +85,6 @@ echo -e "${GREEN}========================${RESET}"
 mkdir -p /usr/share/backgrounds/rosuntu
 cp wallpaper/*.png /usr/share/backgrounds/rosuntu/
 cp wallpaper/rosuntu-wallpapers.xml /usr/share/gnome-background-properties/rosuntu-wallpapers.xml
-
-read -p "Press Enter to continue..."
-clear
 
 echo -e "${YELLOW}========================${RESET}"
 echo -e "${YELLOW} Configuring Defaults   ${RESET}"
@@ -131,9 +100,6 @@ cp conf/00-favorite-apps /etc/dconf/db/local.d/00-favorite-apps
 cp conf/01-background /etc/dconf/db/local.d/01-background
 
 dconf update
-
-read -p "Press Enter to continue..."
-clear
 
 echo -e "${CYAN}========================${RESET}"
 echo -e "${CYAN} Configuring .bashrc    ${RESET}"
