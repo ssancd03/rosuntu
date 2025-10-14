@@ -73,8 +73,12 @@ cp logo/*.png /usr/share/plymouth/
 echo -e "${GREEN}================================${RESET}"
 echo -e "${GREEN} Configuring Installer Slideshow ${RESET}"
 echo -e "${GREEN}================================${RESET}"
+# Remove default Ubuntu slides first
+rm -rf /usr/share/desktop-provision/slides
 mkdir -p /usr/share/desktop-provision/slides
 cp -r ubiquity/slides/* /usr/share/desktop-provision/slides/
+# Remove and replace default Ubuntu pixmaps
+rm -rf /usr/share/pixmaps/ubuntu
 mkdir -p /usr/share/pixmaps/ubuntu
 cp ubiquity/pixmaps/ubuntu_installed.png /usr/share/pixmaps/
 cp -r ubiquity/pixmaps/ubuntu/* /usr/share/pixmaps/ubuntu/
