@@ -111,25 +111,11 @@ cp conf/90_ubuntu-settings.gschema.override /usr/share/glib-2.0/schemas/
 glib-compile-schemas /usr/share/glib-2.0/schemas
 
 mkdir -p /etc/dconf/profile
-cat > /etc/dconf/profile/user << 'EOF'
-user-db:user
-system-db:local
-EOF
+cp conf/dconf-profile-user /etc/dconf/profile/user
 
 mkdir -p /etc/dconf/db/local.d
-cat > /etc/dconf/db/local.d/00-favorite-apps << 'EOF'
-[org/gnome/shell]
-favorite-apps = ['google-chrome.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop', 'code.desktop', 'org.gnome.TextEditor.desktop', 'gnome-control-center.desktop']
-EOF
-
-cat > /etc/dconf/db/local.d/01-background << 'EOF'
-[org/gnome/desktop/background]
-picture-uri='file:///usr/share/backgrounds/rosuntu/wallpaper_1.png'
-picture-uri-dark='file:///usr/share/backgrounds/rosuntu/wallpaper_1.png'
-
-[org/gnome/desktop/screensaver]
-picture-uri='file:///usr/share/backgrounds/rosuntu/wallpaper_1.png'
-EOF
+cp conf/00-favorite-apps /etc/dconf/db/local.d/00-favorite-apps
+cp conf/01-background /etc/dconf/db/local.d/01-background
 
 dconf update
 
