@@ -122,6 +122,15 @@ cat > /etc/dconf/db/local.d/00-favorite-apps << 'EOF'
 favorite-apps = ['google-chrome.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop', 'code.desktop', 'org.gnome.TextEditor.desktop', 'gnome-control-center.desktop']
 EOF
 
+cat > /etc/dconf/db/local.d/01-background << 'EOF'
+[org/gnome/desktop/background]
+picture-uri='file:///usr/share/backgrounds/rosuntu/wallpaper_1.png'
+picture-uri-dark='file:///usr/share/backgrounds/rosuntu/wallpaper_1.png'
+
+[org/gnome/desktop/screensaver]
+picture-uri='file:///usr/share/backgrounds/rosuntu/wallpaper_1.png'
+EOF
+
 dconf update
 
 read -p "Press Enter to continue..."
