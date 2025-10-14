@@ -75,8 +75,8 @@ echo -e "${GREEN} Configuring Installer Slideshow ${RESET}"
 echo -e "${GREEN}================================${RESET}"
 mkdir -p /usr/share/desktop-provision/slides
 cp -r ubiquity/slides/* /usr/share/desktop-provision/slides/
-cp ubiquity/pixmaps/ubuntu_installed.png /usr/share/pixmaps/
 mkdir -p /usr/share/pixmaps/ubuntu
+cp ubiquity/pixmaps/ubuntu_installed.png /usr/share/pixmaps/
 cp -r ubiquity/pixmaps/ubuntu/* /usr/share/pixmaps/ubuntu/
 
 echo -e "${GREEN}========================${RESET}"
