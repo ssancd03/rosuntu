@@ -119,7 +119,7 @@ EOF
 mkdir -p /etc/dconf/db/local.d
 cat > /etc/dconf/db/local.d/00-favorite-apps << 'EOF'
 [org/gnome/shell]
-favorite-apps = ['google-chrome.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop', 'code.desktop']
+favorite-apps = ['google-chrome.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop', 'code.desktop', 'org.gnome.TextEditor.desktop', 'gnome-control-center.desktop']
 EOF
 
 dconf update
