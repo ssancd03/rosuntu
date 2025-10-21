@@ -77,11 +77,6 @@ echo -e "${GREEN}================================${RESET}"
 rm -rf /usr/share/desktop-provision/slides
 mkdir -p /usr/share/desktop-provision/slides
 cp -r slides/* /usr/share/desktop-provision/slides/
-# Remove and replace default Ubuntu pixmaps
-rm -rf /usr/share/pixmaps/ubuntu
-mkdir -p /usr/share/pixmaps/ubuntu
-cp ubiquity/pixmaps/ubuntu_installed.png /usr/share/pixmaps/
-cp -r ubiquity/pixmaps/ubuntu/* /usr/share/pixmaps/ubuntu/
 
 echo -e "${GREEN}========================${RESET}"
 echo -e "${GREEN}  Preparing Wallpapers  ${RESET}"
