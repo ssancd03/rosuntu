@@ -77,6 +77,8 @@ echo -e "${GREEN}================================${RESET}"
 rm -rf /usr/share/desktop-provision/slides
 mkdir -p /usr/share/desktop-provision/slides
 cp -r ubiquity/slides-new/* /usr/share/desktop-provision/slides/
+# Copy configuration file for Ubuntu 24.04
+cp whitelabel.yaml /usr/share/desktop-provision/whitelabel.yaml
 # Remove and replace default Ubuntu pixmaps
 rm -rf /usr/share/pixmaps/ubuntu
 mkdir -p /usr/share/pixmaps/ubuntu
