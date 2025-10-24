@@ -73,9 +73,8 @@ echo -e "${CYAN}========================${RESET}"
 cp logo/*.png /usr/share/plymouth/
 
 echo -e "${GREEN}================================${RESET}"
-echo -e "${GREEN} Configuring Installer Slideshow ${RESET}"
+echo -e "${GREEN}Configuring Installer Slideshow ${RESET}"
 echo -e "${GREEN}================================${RESET}"
-# Remove default Ubuntu slides first
 rm -rf /usr/share/desktop-provision/slides
 mkdir -p /usr/share/desktop-provision/slides
 cp -r slides/* /usr/share/desktop-provision/slides/
@@ -92,27 +91,19 @@ echo -e "${YELLOW} Configuring Defaults   ${RESET}"
 echo -e "${YELLOW}========================${RESET}"
 cp conf/90_ubuntu-settings.gschema.override /usr/share/glib-2.0/schemas/
 glib-compile-schemas /usr/share/glib-2.0/schemas
-
 mkdir -p /etc/dconf/profile
 cp conf/dconf-profile-user /etc/dconf/profile/user
-
 mkdir -p /etc/dconf/db/local.d
 cp conf/00-favorite-apps /etc/dconf/db/local.d/00-favorite-apps
 cp conf/01-background /etc/dconf/db/local.d/01-background
-
 dconf update
 
 echo -e "${CYAN}========================${RESET}"
 echo -e "${CYAN} Configuring .bashrc    ${RESET}"
 echo -e "${CYAN}========================${RESET}"
-cat >> /etc/skel/.bashrc << 'EOF'
-
-# ROS 2 Jazzy setup
-if [ -f /opt/ros/jazzy/setup.bash ] && [ -z "$ROS_DISTRO" ]; then
-  source /opt/ros/jazzy/setup.bash
-fi
-EOF
+echo "source /opt/ros/jazzy/setup.bash" >> /etc/skel/.bashrc
 
 echo -e "${GREEN}========================${RESET}"
-echo -e "${GREEN} Install complete!      ${RESET}"
+echo -e "${GREEN}    Showing Kernel      ${RESET}"
 echo -e "${GREEN}========================${RESET}"
+ls -la /boot
