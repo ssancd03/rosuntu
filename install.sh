@@ -20,8 +20,10 @@ add-apt-repository universe -y
 apt update && apt install curl -y
 curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $VERSION_CODENAME) main" | tee /etc/apt/sources.list.d/ros2.list
+wget https://packages.osrfoundation.org/gazebo.gpg -O /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -cs) main" | tee /etc/apt/sources.list.d/gazebo-stable.list
 apt update
-sudo apt update && sudo apt install -y ros-jazzy-ros-gz gz-harmonic
+apt install -y ros-jazzy-desktop ros-jazzy-ros-gz gz-harmonic
 
 echo -e "${YELLOW}================================${RESET}"
 echo -e "${YELLOW} Installing GNOME Tools and Git ${RESET}"
