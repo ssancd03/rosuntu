@@ -63,10 +63,10 @@ ROSuntu has been created with Cubic. Here you have the steps to reproduce the RO
 Download and install [Cubic](https://github.com/PJ-Singh-001/Cubic). It runs on distributions based on Ubuntu 18.04.5 Bionic and above.
 
 ```shell
-$ sudo apt-add-repository universe
-$ sudo apt-add-repository ppa:cubic-wizard/release
-$ sudo apt update
-$ sudo apt install --no-install-recommends cubic
+sudo apt-add-repository universe
+sudo apt-add-repository ppa:cubic-wizard/release
+sudo apt update
+sudo apt install --no-install-recommends cubic
 ```
 
 ### Start Page
@@ -74,9 +74,9 @@ $ sudo apt install --no-install-recommends cubic
 Open Cubic in your workspace for instance, in a directory called rosuntu:
 
 ```shell
-$ mkdir ~/rosuntu
-$ cd ~/rosuntu
-$ cubic .
+mkdir ~/rosuntu
+cd ~/rosuntu
+cubic .
 ```
 
 ### Project Page
@@ -90,17 +90,17 @@ Download the [Ubuntu 24.04.1 LTS (Noble Numbat)](https://releases.ubuntu.com/nob
 Clone this repository in the chroot terminal and run the install script to install all packages. Use all of the materials in this repository. Note the kernel shown at the end.
 
 ```shell
-$ apt update && apt install git -y
-$ git clone https://github.com/mgonzs13/rosuntu
-$ cd rosuntu
-$ ./install.sh
+apt update && apt install git -y
+git clone https://github.com/mgonzs13/rosuntu
+cd rosuntu
+./install.sh
 ```
 
 After installing everything, remove this repository.
 
 ```shell
-$ cd ..
-$ rm -rf rosuntu
+cd ..
+rm -rf rosuntu
 ```
 
 ### Prepare Page
