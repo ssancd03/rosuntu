@@ -13,35 +13,37 @@ echo -e "${GREEN}========================${RESET}"
 apt update && apt upgrade -y
 
 echo -e "${BLUE}========================${RESET}"
-echo -e "${BLUE}   Installing ROS 2 Jazzy     ${RESET}"
+echo -e "${BLUE} Installing ROS 2 Jazzy ${RESET}"
 echo -e "${BLUE}========================${RESET}"
-apt install -y software-properties-common curl gnupg lsb-release
+apt install software-properties-common -y
 add-apt-repository universe -y
-
+apt update && apt install curl -y
 curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $VERSION_CODENAME) main" | tee /etc/apt/sources.list.d/ros2.list
 apt update
-apt install -y ros-jazzy-desktop ros-dev-tools ros-jazzy-ros-gz
+sudo apt update && sudo apt install -y ros-jazzy-ros-gz gz-harmonic
 
 echo -e "${YELLOW}================================${RESET}"
 echo -e "${YELLOW} Installing GNOME Tools and Git ${RESET}"
 echo -e "${YELLOW}================================${RESET}"
-apt install -y gnome-control-center git
+apt install gnome-control-center git -y
 
 echo -e "${CYAN}========================${RESET}"
 echo -e "${CYAN}  Installing VSCode     ${RESET}"
 echo -e "${CYAN}========================${RESET}"
-apt install -y wget
-wget -O vscode.deb 'https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64'
-apt install -y ./vscode.deb
-rm -f vscode.deb
+apt install -y apt-transport-https wget
+wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > /usr/share/keyrings/packages.microsoft.gpg
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list
+apt update
+apt install -y code
 
 echo -e "${GREEN}========================${RESET}"
 echo -e "${GREEN}  Installing Chrome     ${RESET}"
 echo -e "${GREEN}========================${RESET}"
-wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-apt install -y ./google-chrome-stable_current_amd64.deb
-rm -f google-chrome-stable_current_amd64.deb
+wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | gpg --dearmor > /usr/share/keyrings/google-chrome.gpg
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/google-chrome.gpg] http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list
+apt update
+apt install -y google-chrome-stable
 
 echo -e "${BLUE}========================${RESET}"
 echo -e "${BLUE}  Installing Docker     ${RESET}"
@@ -52,7 +54,7 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/doc
 chmod a+r /etc/apt/keyrings/docker.asc
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo $VERSION_CODENAME) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
 apt update
-apt install -y docker-ce
+apt install docker-ce -y
 groupmod -g 1000 docker
 
 echo -e "${YELLOW}========================${RESET}"
