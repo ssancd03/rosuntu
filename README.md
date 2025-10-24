@@ -40,13 +40,12 @@ Take a look to the custom slideshow of ROSuntu that you will see during installa
 
 <div align="center">
   <img src="./images/install.png" style="width: 100%;">
-
-  <img src="./images/slideshow_1.png" style="width: 49%;">
-  <img src="./images/slideshow_2.png" style="width: 49%;">
-  <img src="./images/slideshow_3.png" style="width: 49%;">
-  <img src="./images/slideshow_4.png" style="width: 49%;">
-  <img src="./images/slideshow_5.png" style="width: 49%;">
-  <img src="./images/slideshow_6.png" style="width: 49%;">
+  <img src="./images/slideshow_1.PNG" style="width: 49%;">
+  <img src="./images/slideshow_2.PNG" style="width: 49%;">
+  <img src="./images/slideshow_3.PNG" style="width: 49%;">
+  <img src="./images/slideshow_4.PNG" style="width: 49%;">
+  <img src="./images/slideshow_5.PNG" style="width: 49%;">
+  <img src="./images/slideshow_6.PNG" style="width: 49%;">
 </div>
 
 </details>
