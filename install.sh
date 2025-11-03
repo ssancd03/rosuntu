@@ -33,7 +33,7 @@ apt install gnome-control-center git -y
 echo -e "${BLUE}========================${RESET}"
 echo -e "${BLUE}  Installing Kernel     ${RESET}"
 echo -e "${BLUE}========================${RESET}"
-apt install -y linux-generic casper lupin-casper
+apt install -y linux-generic
 update-initramfs -c -k all
 
 # echo -e "${CYAN}========================${RESET}"
