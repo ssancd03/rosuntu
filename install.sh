@@ -12,18 +12,18 @@ echo -e "${GREEN}   Update and Upgrade   ${RESET}"
 echo -e "${GREEN}========================${RESET}"
 apt update && apt upgrade -y
 
-# echo -e "${BLUE}========================${RESET}"
-# echo -e "${BLUE} Installing ROS 2 Jazzy ${RESET}"
-# echo -e "${BLUE}========================${RESET}"
-# apt install software-properties-common -y
-# add-apt-repository universe -y
-# apt update && apt install curl -y
-# curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
-# echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $VERSION_CODENAME) main" | tee /etc/apt/sources.list.d/ros2.list
-# wget https://packages.osrfoundation.org/gazebo.gpg -O /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg
-# echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -cs) main" | tee /etc/apt/sources.list.d/gazebo-stable.list
-# apt update
-# apt install -y ros-jazzy-desktop ros-jazzy-ros-gz gz-harmonic
+echo -e "${BLUE}========================${RESET}"
+echo -e "${BLUE} Installing ROS 2 Jazzy ${RESET}"
+echo -e "${BLUE}========================${RESET}"
+apt install software-properties-common -y
+add-apt-repository universe -y
+apt update && apt install curl -y
+curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $VERSION_CODENAME) main" | tee /etc/apt/sources.list.d/ros2.list
+wget https://packages.osrfoundation.org/gazebo.gpg -O /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -cs) main" | tee /etc/apt/sources.list.d/gazebo-stable.list
+apt update
+apt install -y ros-jazzy-desktop ros-jazzy-ros-gz gz-harmonic
 
 echo -e "${YELLOW}================================${RESET}"
 echo -e "${YELLOW} Installing GNOME Tools and Git ${RESET}"
@@ -33,37 +33,37 @@ apt install gnome-control-center git -y
 echo -e "${BLUE}========================${RESET}"
 echo -e "${BLUE}  Installing Kernel     ${RESET}"
 echo -e "${BLUE}========================${RESET}"
-apt install -y linux-generic casper
+apt install -y linux-generic
 update-initramfs -c -k all
 
-# echo -e "${CYAN}========================${RESET}"
-# echo -e "${CYAN}  Installing VSCode     ${RESET}"
-# echo -e "${CYAN}========================${RESET}"
-# apt install -y apt-transport-https wget
-# wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > /usr/share/keyrings/packages.microsoft.gpg
-# echo "deb [arch=amd64 signed-by=/usr/share/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list
-# apt update
-# apt install -y code
+echo -e "${CYAN}========================${RESET}"
+echo -e "${CYAN}  Installing VSCode     ${RESET}"
+echo -e "${CYAN}========================${RESET}"
+apt install -y apt-transport-https wget
+wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > /usr/share/keyrings/packages.microsoft.gpg
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list
+apt update
+apt install -y code
 
-# echo -e "${GREEN}========================${RESET}"
-# echo -e "${GREEN}  Installing Chrome     ${RESET}"
-# echo -e "${GREEN}========================${RESET}"
-# wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | gpg --dearmor > /usr/share/keyrings/google-chrome.gpg
-# echo "deb [arch=amd64 signed-by=/usr/share/keyrings/google-chrome.gpg] http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list
-# apt update
-# apt install -y google-chrome-stable
+echo -e "${GREEN}========================${RESET}"
+echo -e "${GREEN}  Installing Chrome     ${RESET}"
+echo -e "${GREEN}========================${RESET}"
+wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | gpg --dearmor > /usr/share/keyrings/google-chrome.gpg
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/google-chrome.gpg] http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list
+apt update
+apt install -y google-chrome-stable
 
-# echo -e "${BLUE}========================${RESET}"
-# echo -e "${BLUE}  Installing Docker     ${RESET}"
-# echo -e "${BLUE}========================${RESET}"
-# apt install -y ca-certificates curl
-# install -m 0755 -d /etc/apt/keyrings
-# curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
-# chmod a+r /etc/apt/keyrings/docker.asc
-# echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo $VERSION_CODENAME) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
-# apt update
-# apt install docker-ce -y
-# groupmod -g 1000 docker
+echo -e "${BLUE}========================${RESET}"
+echo -e "${BLUE}  Installing Docker     ${RESET}"
+echo -e "${BLUE}========================${RESET}"
+apt install -y ca-certificates curl
+install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+chmod a+r /etc/apt/keyrings/docker.asc
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo $VERSION_CODENAME) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
+apt update
+apt install docker-ce -y
+groupmod -g 1000 docker
 
 echo -e "${YELLOW}========================${RESET}"
 echo -e "${YELLOW}  Preparing Plymouth    ${RESET}"
@@ -73,6 +73,12 @@ cp plymouth/*.png /usr/share/plymouth/themes/rosuntu/
 cp plymouth/rosuntu.script /usr/share/plymouth/themes/rosuntu/
 cp plymouth/rosuntu.plymouth /usr/share/plymouth/themes/rosuntu/
 update-alternatives --install "/usr/share/plymouth/themes/default.plymouth" "default.plymouth" "/usr/share/plymouth/themes/rosuntu/rosuntu.plymouth" 160
+
+echo -e "${CYAN}========================${RESET}"
+echo -e "${CYAN}  Setting Login Screen  ${RESET}"
+echo -e "${CYAN}========================${RESET}"
+cp logo/ROSuntu_logo-small.png /usr/share/pixmaps/ubuntu-logo.png
+cp logo/ROSuntu_logo.png /usr/share/pixmaps/ubuntu-logo-text.png
 
 echo -e "${GREEN}================================${RESET}"
 echo -e "${GREEN}Configuring Installer Slideshow ${RESET}"
@@ -104,8 +110,3 @@ echo -e "${CYAN}========================${RESET}"
 echo -e "${CYAN} Configuring .bashrc    ${RESET}"
 echo -e "${CYAN}========================${RESET}"
 echo "source /opt/ros/jazzy/setup.bash" >> /etc/skel/.bashrc
-
-echo -e "${GREEN}========================${RESET}"
-echo -e "${GREEN}    Showing Kernel      ${RESET}"
-echo -e "${GREEN}========================${RESET}"
-ls -la /boot

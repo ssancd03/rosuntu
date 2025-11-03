@@ -9,9 +9,10 @@
 
 ## About ROSuntu
 
-This is the repository of ROSuntu, a Ubuntu-based distribution for ROS 2. ROSuntu is a distro of Ubuntu, which makes it easy enough for new users to go into it. Still, we gave it the customization for ROS 2 developers, including installing ROS 2 Jazzy, Gazebo Harmonic, VSCode, Chrome, Git, and Docker. This repository provides the materials and the guide to creating the ISO for the ROSuntu distro.
+This is the repository of ROSuntu, a Ubuntu-based distribution for ROS 2. ROSuntu is a distro of Ubuntu, which makes it easy enough for new users to go into it. Still, we gave it the customization for ROS 2 developers, including installing ROS 2 Humble, Gazebo Classic, VSCode, Chrome, Git, and Docker. This repository provides the materials and the guide to creating the ISO for the ROSuntu distro.
 
 <div align="center">
+  <img src="./logo/ROSuntu_logo.png" style="width: 100%;">
   <img src="./images/plymouth.gif" style="width: 100%;">
   <img src="./images/desktop_1.png" style="width: 49%;">
   <img src="./images/desktop_2.png" style="width: 49%;">
@@ -20,13 +21,13 @@ This is the repository of ROSuntu, a Ubuntu-based distribution for ROS 2. ROSunt
 ## Download ROSuntu
 
 <div align="center">
-  <a href="https://drive.usercontent.google.com/download?id=11DpbVunPt8NQKP-DK-hN5r-9eHLrsHv3&export=download" download>
+  <a href="https://drive.usercontent.google.com/download?id=15SIl45SzUscFYs7nFKyOQjvIuN7j3i_8&export=download&authuser=0&confirm=t&uuid=e08596ef-babd-43a0-a74f-0b9ac8f4dd4d&at=APvzH3oRjC6dD6n_w7uG8w5FLv3V%3A1734962734800" download>
     <img src="./images/download_ROSuntu.png" style="width: 400px;">
   </a>
 </div>
 
 <div align="center">
-  <p style="margin-top: 20px;"><b>MD5</b>: <code>72b90bce20c4e893634610c1f8fd474a</code></p>
+  <p style="margin-top: 20px;"><b>MD5</b>: <code>3a1ff4d2a9b5b84b00eee6e69055ec12</code></p>
 </div>
 
 ## Install ROSuntu
@@ -80,26 +81,26 @@ cubic .
 
 ### Project Page
 
-Download the [Ubuntu 24.04.1 LTS (Noble Numbat)](https://releases.ubuntu.com/noble/) ISO and load it in the Project Page of Cubic. Modify the custom data by replacing Ubuntu with ROSuntu and setting the release to Jazzy Jalisco.
+Download the [Ubuntu 22.04 LTS (Jammy Jellyfish)](https://releases.ubuntu.com/22.04/) ISO and load it in the Project Page of Cubic. Modify the custom data by replacing Ubuntu with ROSuntu and setting the release to Humble Hawksbill.
 
 <img src="./images/cubic-1.png">
 
 ### Terminal Page
 
-Clone this repository in the chroot terminal and run the install script to install all packages. Use all of the materials in this repository. Note the kernel shown at the end.
+Clone this repository in the chroot terminal and run the install script to install all packages. Use all of the materials in this repository.
 
 ```shell
-apt update && apt install git -y
-git clone https://github.com/mgonzs13/rosuntu
-cd rosuntu
-./install.sh
+$ apt update && apt install git -y
+$ git clone https://github.com/mgonzs13/rosuntu
+$ cd rosuntu
+$ ./install.sh
 ```
 
 After installing everything, remove this repository.
 
 ```shell
-cd ..
-rm -rf rosuntu
+$ cd ..
+$ rm -rf rosuntu
 ```
 
 ### Prepare Page
