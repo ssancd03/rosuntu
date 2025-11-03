@@ -30,6 +30,12 @@ echo -e "${YELLOW} Installing GNOME Tools and Git ${RESET}"
 echo -e "${YELLOW}================================${RESET}"
 apt install gnome-control-center git -y
 
+echo -e "${BLUE}========================${RESET}"
+echo -e "${BLUE}  Installing Kernel     ${RESET}"
+echo -e "${BLUE}========================${RESET}"
+apt install -y linux-generic
+update-initramfs -u
+
 echo -e "${CYAN}========================${RESET}"
 echo -e "${CYAN}  Installing VSCode     ${RESET}"
 echo -e "${CYAN}========================${RESET}"
@@ -67,12 +73,6 @@ cp plymouth/*.png /usr/share/plymouth/themes/rosuntu/
 cp plymouth/rosuntu.script /usr/share/plymouth/themes/rosuntu/
 cp plymouth/rosuntu.plymouth /usr/share/plymouth/themes/rosuntu/
 update-alternatives --install "/usr/share/plymouth/themes/default.plymouth" "default.plymouth" "/usr/share/plymouth/themes/rosuntu/rosuntu.plymouth" 160
-update-initramfs -uk all
-
-echo -e "${CYAN}========================${RESET}"
-echo -e "${CYAN}   Setting Login Screen ${RESET}"
-echo -e "${CYAN}========================${RESET}"
-cp logo/*.png /usr/share/plymouth/
 
 echo -e "${GREEN}================================${RESET}"
 echo -e "${GREEN}Configuring Installer Slideshow ${RESET}"
